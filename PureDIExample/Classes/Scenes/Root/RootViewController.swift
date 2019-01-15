@@ -38,6 +38,9 @@ class RootViewController: UIViewController, View, FactoryModule  {
         self.button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 55))
         super.init(nibName: nil, bundle: nil)
         
+        // ReactorではviewControllerのスコープは必要ないが、routerのために渡している
+        // そう考えると、routerはreactorではなく、viewControllerで保持すべきではないか？
+        // その場合は、stateにrouting用のプロパティを追加する必要がある
         self.reactor = self.dependency.reactor.create(payload: .init(viewController: self))
     }
     
