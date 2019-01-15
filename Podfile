@@ -17,7 +17,6 @@ target 'PureDIExample' do
   target 'PureDIExampleTests' do
     inherit! :search_paths
     # Pods for testing
-    # Pods for testing
     pod 'Quick'
     pod 'Nimble', :git => 'https://github.com/Quick/Nimble', :branch => '7.x-branch'
   end

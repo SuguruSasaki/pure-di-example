@@ -21,6 +21,7 @@ class RootViewController: UIViewController, View, FactoryModule  {
     struct Dependency {
         let window: UIWindow
         let reactor: RootReactor.Factory
+        let routerFactory: RootRouter.Factory
     }
     
     struct Payload {
@@ -36,12 +37,11 @@ class RootViewController: UIViewController, View, FactoryModule  {
         self.dependency = dependency
         self.payload = payload
         self.button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 55))
+
         super.init(nibName: nil, bundle: nil)
+
+        self.reactor = self.dependency.reactor.create(payload: .init())
         
-        // ReactorではviewControllerのスコープは必要ないが、routerのために渡している
-        // そう考えると、routerはreactorではなく、viewControllerで保持すべきではないか？
-        // その場合は、stateにrouting用のプロパティを追加する必要がある
-        self.reactor = self.dependency.reactor.create(payload: .init(viewController: self))
     }
     
     override func viewDidLoad() {
@@ -59,6 +59,22 @@ class RootViewController: UIViewController, View, FactoryModule  {
             .map { Reactor.Action.didTap }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
+        
+        
+        reactor.state
+            .distinctUntilChanged { $0.isMoveToDetail }
+            .filter { $0.isMoveToDetail }
+            .map { $0.isMoveToDetail }
+            .bind(to: self.navigateTo)
+            .disposed(by: self.disposeBag)
+    
+    }
+    
+    var navigateTo: Binder<Bool> {
+        return Binder(self) { (vc, value) in
+            let router = vc.dependency.routerFactory.create(payload: .init(viewController: vc))
+            router.navigateTo(action: .detail)
+        }
     }
 }
 

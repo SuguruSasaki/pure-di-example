@@ -33,10 +33,10 @@ import Pure
             window: self.dependency.window,
             reactor: RootReactor.Factory(
                 dependency: .init(
-                    service: SampleService(),
-                    router: self.rootRouterFactory
+                    service: SampleService()
                 )
-            )
+            ),
+            routerFactory: self.rootRouterFactory
         )
     )
     

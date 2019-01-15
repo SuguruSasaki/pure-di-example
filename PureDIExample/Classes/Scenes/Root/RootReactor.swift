@@ -14,11 +14,9 @@ final class RootReactor: Reactor, FactoryModule {
     
     struct Dependency {
         let service: SampleService
-        let router: RootRouter.Factory
     }
     
     struct Payload {
-        let viewController: UIViewController
     }
     
     enum Action {
@@ -26,23 +24,20 @@ final class RootReactor: Reactor, FactoryModule {
     }
     
     enum Mutation {
-        
+        case navigateToDetail(Bool)
     }
     
     struct State {
-        
+        var isMoveToDetail: Bool
     }
     
-    let initialState = State()
+    let initialState = State(isMoveToDetail: false)
     
     private let dependency: Dependency
-    private let router: RootRouter
     
     required init(dependency: Dependency, payload: Payload) {
         self.dependency = dependency
-        self.router = self.dependency.router.create(payload: .init(viewController: payload.viewController))
     }
-    
 }
 
 extension RootReactor {
@@ -50,12 +45,16 @@ extension RootReactor {
     func mutate(action: RootReactor.Action) -> Observable<RootReactor.Mutation> {
         switch action {
         case .didTap:
-            self.router.navigateTo(action: .detail)
-            return Observable.empty()
+            return Observable.just(Mutation.navigateToDetail(true))
         }
     }
     
     func reduce(state: RootReactor.State, mutation: RootReactor.Mutation) -> RootReactor.State {
-        return state
+        var newState = state
+        switch mutation {
+        case .navigateToDetail(let bool):
+            newState.isMoveToDetail = bool
+        }
+        return newState
     }
 }
