@@ -49,9 +49,6 @@ class RootViewController: UIViewController, View, FactoryModule  {
         button.center = self.view.center
         self.view.addSubview(button)
     }
-}
-
-extension RootViewController {
     
     func bind(reactor: RootReactor) {
         
@@ -61,3 +58,4 @@ extension RootViewController {
             .disposed(by: self.disposeBag)
     }
 }
+

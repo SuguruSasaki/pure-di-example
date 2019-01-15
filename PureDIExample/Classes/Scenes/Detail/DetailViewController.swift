@@ -48,9 +48,6 @@ class DetailViewController: UIViewController, FactoryModule, View {
         
         self.reactor = self.dependency.reactor.create(payload: .init(viewController: self))
     }
-}
-
-extension DetailViewController {
     
     func bind(reactor: DetailViewController.Reactor) {
         
