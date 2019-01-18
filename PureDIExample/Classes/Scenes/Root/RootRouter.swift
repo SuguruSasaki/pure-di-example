@@ -14,7 +14,7 @@ import RxCocoa
 struct RootRouter: FactoryModule {
 
     struct Dependency {
-        let factory: DetailViewController.Factory
+        let factory: Pure.Factory<DetailViewController>
     }
     
     struct Payload {
@@ -22,6 +22,7 @@ struct RootRouter: FactoryModule {
     }
     
     enum Action {
+        case none
         case detail
     }
     
@@ -38,6 +39,8 @@ struct RootRouter: FactoryModule {
         case .detail:
             let vc = self.dependency.factory.create(payload: .init(title: "detail done."))
             self.payload.viewController.present(vc, animated: true, completion: nil)
+            break
+        case .none:
             break
         }
     }

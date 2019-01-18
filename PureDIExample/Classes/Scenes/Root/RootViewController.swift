@@ -41,7 +41,6 @@ class RootViewController: UIViewController, View, FactoryModule  {
         super.init(nibName: nil, bundle: nil)
 
         self.reactor = self.dependency.reactor.create(payload: .init())
-        
     }
     
     override func viewDidLoad() {

@@ -9,17 +9,21 @@
 import XCTest
 import Quick
 import Nimble
+import UIKit
+import Pure
 @testable import PureDIExample
 
 class PureDIExampleTests: QuickSpec {
 
     override func spec() {
-        describe("") {
-            it("") {
+        describe("RootReactorテスト") {
+            it("didTap") {
                 
-                expect(true).to(equal(true))
             }
         }
     }
+    
+    
+    
 
 }

@@ -21,6 +21,15 @@
 		017C0FA021ED625100C8ECCF /* RootReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017C0F9821ED625100C8ECCF /* RootReactor.swift */; };
 		017C0FA221ED626800C8ECCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017C0FA121ED626800C8ECCF /* AppDelegate.swift */; };
 		017C0FA421ED627B00C8ECCF /* CompositionRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017C0FA321ED627B00C8ECCF /* CompositionRoot.swift */; };
+		017C0FA821EE263600C8ECCF /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017C0F9521ED625100C8ECCF /* RootViewController.swift */; };
+		017C0FA921EE263B00C8ECCF /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017C0F9621ED625100C8ECCF /* RootRouter.swift */; };
+		017C0FAA21EE264000C8ECCF /* RootReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017C0F9821ED625100C8ECCF /* RootReactor.swift */; };
+		017C0FAB21EE264400C8ECCF /* DetailReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017C0F9021ED625100C8ECCF /* DetailReactor.swift */; };
+		017C0FAC21EE264700C8ECCF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017C0F9121ED625100C8ECCF /* DetailViewController.swift */; };
+		017C0FAD21EE264A00C8ECCF /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017C0F9321ED625100C8ECCF /* DetailRouter.swift */; };
+		017C0FAE21EE266200C8ECCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017C0FA121ED626800C8ECCF /* AppDelegate.swift */; };
+		017C0FAF21EE266700C8ECCF /* CompositionRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017C0FA321ED627B00C8ECCF /* CompositionRoot.swift */; };
+		017C0FB021EE270400C8ECCF /* SampleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017C0F9721ED625100C8ECCF /* SampleService.swift */; };
 		343A06413D6DC04FE61ABE99 /* Pods_PureDIExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A347143E4DA3CC870174C1AE /* Pods_PureDIExample.framework */; };
 		6D2AD56C4619DCEBF0A0BC57 /* Pods_PureDIExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B79BA766124347D9E8968A73 /* Pods_PureDIExampleTests.framework */; };
 		E04FF695C8CED5FB6DCC9D03 /* Pods_PureDIExampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70DA4A0FF15CD540DA79EE4F /* Pods_PureDIExampleUITests.framework */; };
@@ -525,7 +534,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				017C0FAE21EE266200C8ECCF /* AppDelegate.swift in Sources */,
+				017C0FAB21EE264400C8ECCF /* DetailReactor.swift in Sources */,
+				017C0FAA21EE264000C8ECCF /* RootReactor.swift in Sources */,
+				017C0FA821EE263600C8ECCF /* RootViewController.swift in Sources */,
+				017C0FAC21EE264700C8ECCF /* DetailViewController.swift in Sources */,
+				017C0FA921EE263B00C8ECCF /* RootRouter.swift in Sources */,
+				017C0FAD21EE264A00C8ECCF /* DetailRouter.swift in Sources */,
+				017C0FAF21EE266700C8ECCF /* CompositionRoot.swift in Sources */,
 				017C0F7421ED610E00C8ECCF /* PureDIExampleTests.swift in Sources */,
+				017C0FB021EE270400C8ECCF /* SampleService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

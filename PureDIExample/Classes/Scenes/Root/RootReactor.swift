@@ -17,6 +17,7 @@ final class RootReactor: Reactor, FactoryModule {
     }
     
     struct Payload {
+
     }
     
     enum Action {
