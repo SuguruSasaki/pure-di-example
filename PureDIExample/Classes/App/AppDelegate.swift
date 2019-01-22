@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxFlow
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -32,9 +33,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        let root = self.compositionRoot.rootViewControllerFactory.create(payload: .init(title: "Root ViewController"))
-        self.compositionRoot.dependency.window.rootViewController = root
-        self.compositionRoot.dependency.window.makeKeyAndVisible()
+        //let root = self.compositionRoot.rootViewControllerFactory.create(payload: .init(title: "Root ViewController"))
+        //self.compositionRoot.dependency.window.rootViewController = root
+        //self.compositionRoot.dependency.window.makeKeyAndVisible()
+        
+        
+        self.compositionRoot.dependency.coordinator.coordinate(
+            flow: self.compositionRoot.appFlowFactory.create(payload: .init()),
+            withStepper: OneStepper(
+                withSingleStep: AppStep.index
+            )
+        )
         
         return true
     }

@@ -8,11 +8,13 @@
 
 import Foundation
 import Pure
+import RxFlow
  
- final class CompositionRoot: FactoryModule {
+final class CompositionRoot: FactoryModule {
     
     struct Dependency {
         let window: UIWindow
+        let coordinator: Coordinator
     }
     
     struct Payload {
@@ -40,6 +42,10 @@ import Pure
         )
     )
     
+    private lazy var indexViewControllerFactory = IndexViewController.Factory(
+        dependency: .init()
+    )
+    
     /// Detail
     private lazy var detailViewControllerFactory = DetailViewController.Factory(
         dependency: .init(
@@ -53,6 +59,27 @@ import Pure
     
     
     // MARK: Router
+    
+    lazy var appFlowFactory = AppFlow.Factory(
+        dependency: AppFlow.Dependency(
+            window: UIWindow(),
+            rootFactory: self.rootViewControllerFactory,
+            indexFlowFactory: self.indexFlowFactory
+        )
+    )
+    
+    lazy var indexFlowFactory = IndexFlow.Factory(
+        dependency: IndexFlow.Dependency(
+            indexFactory: self.indexViewControllerFactory
+        )
+    )
+    
+
+    
+    
+    
+    
+    // MARK: 削除予定
     
     private lazy var rootRouterFactory = RootRouter.Factory(
         dependency: .init(
@@ -71,7 +98,10 @@ import Pure
         let window = UIWindow(frame: UIScreen.main.bounds)
         
         return CompositionRoot(
-            dependency: .init(window: window),
+            dependency: .init(
+                window: window,
+                coordinator: Coordinator()
+            ),
             payload: .init()
         )
     }

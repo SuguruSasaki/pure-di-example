@@ -30,6 +30,10 @@
 		017C0FAE21EE266200C8ECCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017C0FA121ED626800C8ECCF /* AppDelegate.swift */; };
 		017C0FAF21EE266700C8ECCF /* CompositionRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017C0FA321ED627B00C8ECCF /* CompositionRoot.swift */; };
 		017C0FB021EE270400C8ECCF /* SampleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017C0F9721ED625100C8ECCF /* SampleService.swift */; };
+		01F779A921F5D07700F7FE21 /* DetailFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F779A821F5D07700F7FE21 /* DetailFlow.swift */; };
+		01F779AB21F66C6200F7FE21 /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F779AA21F66C6200F7FE21 /* AppFlow.swift */; };
+		01F779AE21F6AF5600F7FE21 /* IndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F779AD21F6AF5600F7FE21 /* IndexViewController.swift */; };
+		01F779B021F6B03700F7FE21 /* IndexFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F779AF21F6B03700F7FE21 /* IndexFlow.swift */; };
 		343A06413D6DC04FE61ABE99 /* Pods_PureDIExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A347143E4DA3CC870174C1AE /* Pods_PureDIExample.framework */; };
 		6D2AD56C4619DCEBF0A0BC57 /* Pods_PureDIExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B79BA766124347D9E8968A73 /* Pods_PureDIExampleTests.framework */; };
 		E04FF695C8CED5FB6DCC9D03 /* Pods_PureDIExampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70DA4A0FF15CD540DA79EE4F /* Pods_PureDIExampleUITests.framework */; };
@@ -73,6 +77,10 @@
 		017C0F9821ED625100C8ECCF /* RootReactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootReactor.swift; sourceTree = "<group>"; };
 		017C0FA121ED626800C8ECCF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		017C0FA321ED627B00C8ECCF /* CompositionRoot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositionRoot.swift; sourceTree = "<group>"; };
+		01F779A821F5D07700F7FE21 /* DetailFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFlow.swift; sourceTree = "<group>"; };
+		01F779AA21F66C6200F7FE21 /* AppFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
+		01F779AD21F6AF5600F7FE21 /* IndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewController.swift; sourceTree = "<group>"; };
+		01F779AF21F6B03700F7FE21 /* IndexFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexFlow.swift; sourceTree = "<group>"; };
 		0248C923BD0913427EA2548D /* Pods-PureDIExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PureDIExampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PureDIExampleTests/Pods-PureDIExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		0DB0CB8EE50B53977178D7AF /* Pods-PureDIExampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PureDIExampleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PureDIExampleUITests/Pods-PureDIExampleUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3EE132507B27143F7640FFC5 /* Pods-PureDIExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PureDIExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-PureDIExample/Pods-PureDIExample.release.xcconfig"; sourceTree = "<group>"; };
@@ -187,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				017C0F9421ED625100C8ECCF /* Root */,
+				01F779AC21F6AF4400F7FE21 /* Index */,
 				017C0F8F21ED625100C8ECCF /* Detail */,
 			);
 			path = Scenes;
@@ -198,6 +207,7 @@
 				017C0F9021ED625100C8ECCF /* DetailReactor.swift */,
 				017C0F9121ED625100C8ECCF /* DetailViewController.swift */,
 				017C0F9321ED625100C8ECCF /* DetailRouter.swift */,
+				01F779A821F5D07700F7FE21 /* DetailFlow.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -225,6 +235,7 @@
 			children = (
 				017C0FA321ED627B00C8ECCF /* CompositionRoot.swift */,
 				017C0FA121ED626800C8ECCF /* AppDelegate.swift */,
+				01F779AA21F66C6200F7FE21 /* AppFlow.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -234,6 +245,15 @@
 			children = (
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		01F779AC21F6AF4400F7FE21 /* Index */ = {
+			isa = PBXGroup;
+			children = (
+				01F779AD21F6AF5600F7FE21 /* IndexViewController.swift */,
+				01F779AF21F6B03700F7FE21 /* IndexFlow.swift */,
+			);
+			path = Index;
 			sourceTree = "<group>";
 		};
 		028A54FD577E2F9D40456610 /* Frameworks */ = {
@@ -403,6 +423,7 @@
 				"${BUILT_PRODUCTS_DIR}/Pure/Pure.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactorKit/ReactorKit.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxFlow/RxFlow.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
 			);
@@ -413,6 +434,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pure.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactorKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxFlow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
 			);
@@ -519,10 +541,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				017C0FA021ED625100C8ECCF /* RootReactor.swift in Sources */,
+				01F779AB21F66C6200F7FE21 /* AppFlow.swift in Sources */,
 				017C0F9D21ED625100C8ECCF /* RootViewController.swift in Sources */,
 				017C0FA421ED627B00C8ECCF /* CompositionRoot.swift in Sources */,
+				01F779B021F6B03700F7FE21 /* IndexFlow.swift in Sources */,
 				017C0FA221ED626800C8ECCF /* AppDelegate.swift in Sources */,
+				01F779AE21F6AF5600F7FE21 /* IndexViewController.swift in Sources */,
 				017C0F9C21ED625100C8ECCF /* DetailRouter.swift in Sources */,
+				01F779A921F5D07700F7FE21 /* DetailFlow.swift in Sources */,
 				017C0F9F21ED625100C8ECCF /* SampleService.swift in Sources */,
 				017C0F9921ED625100C8ECCF /* DetailReactor.swift in Sources */,
 				017C0F9E21ED625100C8ECCF /* RootRouter.swift in Sources */,
