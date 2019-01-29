@@ -40,7 +40,7 @@ class DetailViewController: UIViewController, FactoryModule, View {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .blue
         
         self.button.backgroundColor = UIColor.black
         self.button.setTitle("back", for: .normal)

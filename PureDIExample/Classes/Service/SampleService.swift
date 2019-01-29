@@ -6,9 +6,18 @@
 //  Copyright © 2019 quad. All rights reserved.
 //
 
-import Foundation
+import RxSwift
 
 // sample
 final class SampleService {
     
+    func Select() -> Observable<String> {
+        return Observable<String>.create { observer in
+            
+            observer.onNext("success")
+            observer.onCompleted()
+        
+            return Disposables.create()
+        }
+    }
 }

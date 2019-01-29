@@ -22,10 +22,12 @@ final class RootReactor: Reactor, FactoryModule {
     
     enum Action {
         case didTap
+        case didLoad
     }
     
     enum Mutation {
         case navigateToDetail(Bool)
+        case load(String)
     }
     
     struct State {
@@ -33,6 +35,8 @@ final class RootReactor: Reactor, FactoryModule {
     }
     
     let initialState = State(isMoveToDetail: false)
+    
+    let backgroundScheduler = ConcurrentDispatchQueueScheduler(qos: .background)
     
     private let dependency: Dependency
     
@@ -47,6 +51,17 @@ extension RootReactor {
         switch action {
         case .didTap:
             return Observable.just(Mutation.navigateToDetail(true))
+            
+        case .didLoad:
+            return self.dependency.service.Select()
+                .subscribeOn(backgroundScheduler)  // ここでBackgroundに回る、非同期、Reacotr側でMain Threadに戻す処理があるはず
+                .catchError { error in
+                    // エラー処理、
+                    return Observable.empty()
+                }
+                .flatMap { response in
+                    return Observable.just(Mutation.load(response))
+            }
         }
     }
     
@@ -55,6 +70,9 @@ extension RootReactor {
         switch mutation {
         case .navigateToDetail(let bool):
             newState.isMoveToDetail = bool
+            
+        case .load(let str):
+            debugPrint(str)
         }
         return newState
     }
