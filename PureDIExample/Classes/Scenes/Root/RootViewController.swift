@@ -50,6 +50,8 @@ class RootViewController: UIViewController, View, FactoryModule  {
         button.backgroundColor = UIColor.red
         button.center = self.view.center
         self.view.addSubview(button)
+        
+        
     }
     
     func bind(reactor: RootReactor) {
